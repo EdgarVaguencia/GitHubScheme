@@ -1,0 +1,15 @@
+.syntaxItem {
+  display: inline-block;
+  margin-right: 15px;
+  text-align: center;
+}
+
+.syntaxItem img {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.syntaxItem input {
+  display: inline;
+  vertical-align: middle;
+}
