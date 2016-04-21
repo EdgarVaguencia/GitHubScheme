@@ -18,15 +18,21 @@ gulp.task('chrome', ['chrome:js', 'chrome:css', 'chrome:img'], function() {
 
 gulp.task('chrome:js', function () {
   return universalFile('chrome', 'js');
-})
+});
 
 gulp.task('chrome:css', function () {
   return universalFile('chrome', 'css');
-})
+});
 
 gulp.task('chrome:img', function () {
   return universalFile('chrome', 'img');
-})
+});
+
+gulp.task('chrome:zip', function() {
+  return gulp.src('./tmp/chrome/**/*')
+    .pipe(_$.zip('chrome.zip'))
+    .pipe(gulp.dest('./dist'));
+});
 
 function universalFile(folderName, files) {
   return gulp.src('./src/' + files + '/*')
