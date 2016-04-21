@@ -11,6 +11,10 @@ gulp.task('build', ['clean'], function() {
   rsequence('chrome');
 });
 
+gulp.task('dist', function() {
+  rsequence('build', 'chrome:zip');
+});
+
 gulp.task('chrome', ['chrome:js', 'chrome:css', 'chrome:img'], function() {
   return gulp.src('./src/chrome/*')
     .pipe(gulp.dest('./tmp/chrome'))
