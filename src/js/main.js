@@ -15,6 +15,9 @@
   menuContent.appendChild(menuItem);
 
   menuItem.addEventListener('click', function(e) {
+    var elementSelected = document.getElementsByClassName('selected')[0];
+    elementSelected.classList.remove('selected');
+    e.target.classList.add('selected');
     showSchemeOption();
   });
 
