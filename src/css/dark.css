@@ -1,0 +1,27 @@
+.data {
+  background: rgb(0, 0, 0) !important;
+}
+
+.blob-num {
+  color: rgba(82,136,129,0.3) !important;
+}
+
+.blob-code-inner {
+  color: rgb(100,81,136) !important;
+}
+
+.pl-smi {
+  color: rgb(100,81,136) !important;
+}
+
+.pl-k {
+  color: rgb(133, 68, 66) !important;
+}
+
+.pl-en, .pl-c1 {
+  color: rgb(136,100,81) !important;
+}
+
+.pl-s, .pl-pds {
+  color: rgb(82,136,129) !important;
+}
