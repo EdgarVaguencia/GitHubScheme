@@ -12,9 +12,9 @@
     }],
   "description": "Change scheme of github code",
   "icons": {
-    "16": "icon-16.png",
-    "48": "icon-48.png",
-    "128": "icon-128.png"
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
   },
   "manifest_version" : 2,
   "name" : "GitHub Scheme Syntax",
@@ -27,7 +27,7 @@
     "type": "git",
     "url": "https://github.com/EdgarVaguencia/GitHubScheme"
   },
-  "version": "0.2.0",
+  "version": "0.2.1",
   "web_accessible_resources": [
     "img/*.png"
   ]

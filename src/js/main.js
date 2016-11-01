@@ -5,7 +5,13 @@
   var syntaxOptions = JSON.parse(schemes);
   var syntaxCurrent;
 
-  chrome.storage.sync.get('gitHubSchemeSyntax', function(item) { syntaxCurrent = item.gitHubSchemeSyntax !== undefined ? item.gitHubSchemeSyntax : 'default'; });
+  if (localStorage.getItem('gitHubSchemeSyntax') !== undefined) {
+    syntaxCurrent = localStorage.getItem('gitHubSchemeSyntax');
+  }else {
+    syntaxCurrent = 'default';
+  }
+
+  // chrome.storage.sync.get('gitHubSchemeSyntax', function(item) { syntaxCurrent = item.gitHubSchemeSyntax !== undefined ? item.gitHubSchemeSyntax : 'default'; });
 
   menuItem.classList.add('gitScheme', 'js-selected-navigation-item', 'menu-item');
   menuItem.setAttribute('id', 'scheme');
@@ -35,7 +41,11 @@
       var syntaxImg = document.createElement('img');
       var syntaxCheck = document.createElement('input');
       var syntaxSpan = document.createElement('span');
-      var srcImg = chrome.extension.getURL('img/' + v + '.png');
+      if (chrome.extension.getURL) {
+        var srcImg = chrome.extension.getURL('img/' + v + '.png');
+      }else {
+        var srcImg = './img/' + v + '.png';
+      }
 
       syntaxItem.classList.add('syntaxItem');
 
@@ -68,10 +78,13 @@
 
   function saveOption(target) {
     var value = target.value;
-    // localStorage.gitHubSchemeSyntax = value;
-    chrome.storage.sync.set({'gitHubSchemeSyntax': value}, function() {
-      console.info('Settings saved: ' + value);
-    });
+    if (chrome.storage.sync) {
+      chrome.storage.sync.set({'gitHubSchemeSyntax': value}, function() {
+        console.info('Settings saved: ' + value);
+      });
+    }else{
+      localStorage.setItem('gitHubSchemeSyntax', value);
+    }
   }
 
 })();

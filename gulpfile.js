@@ -15,7 +15,7 @@ gulp.task('dist', function() {
   rsequence('build', 'chrome:zip');
 });
 
-gulp.task('chrome', ['chrome:js', 'chrome:css', 'chrome:img'], function() {
+gulp.task('chrome', ['chrome:js', 'chrome:css', 'chrome:img', 'chrome:icon'], function() {
   return gulp.src('./src/chrome/*')
     .pipe(gulp.dest('./tmp/chrome'))
 });
@@ -30,6 +30,10 @@ gulp.task('chrome:css', function () {
 
 gulp.task('chrome:img', function () {
   return universalFile('chrome', 'img');
+});
+
+gulp.task('chrome:icon', function () {
+  return universalFile('chrome', 'icons');
 });
 
 gulp.task('chrome:zip', function() {
