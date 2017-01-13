@@ -1,7 +1,7 @@
 (function() {
   var menuItem = document.createElement('a');
   var menuContent = document.getElementsByClassName('menu')[0];
-  var infoContent = document.getElementsByClassName('three-fourths')[0];
+  var infoContent = menuContent.parentElement.nextElementSibling;
   var syntaxOptions = JSON.parse(schemes);
   var syntaxCurrent;
 
